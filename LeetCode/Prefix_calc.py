@@ -13,7 +13,7 @@
 def clac(arr):
     for i, v in enumerate(arr):
         if v in ["+", "-", "*", "/"]:
-            if arr[i+1].isnumeric() and arr[i+1].isnumeric():
+            if arr[i+1].isnumeric() and arr[i+2].isnumeric():
                 return calc(arr[:i] + [str(int(eval(arr[i+1] + v + arr[i+2])))] + arr[i+3:])
     return arr[0]
 
