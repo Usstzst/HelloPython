@@ -14,7 +14,7 @@ os.environ['NLS_LANG'] = 'SIMPLIFIED CHINESE_CHINA.UTF8'
 engine = create_engine(
     "postgresql+psycopg2://internship:internship.wx@10.138.61.40:5432/test")
 
-df = pd.read_excel('score_dis.xlsx')
+df = pd.read_excel('excel表格')
 df.to_sql("test_zst_psi", engine, 
     if_exists="replace", 
     index=False)
