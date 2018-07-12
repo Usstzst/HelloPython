@@ -1,4 +1,6 @@
-from pythonds.basic import Stack
+#-*- coding: utf-8 -*-
+
+# from pythonds.basic import Stack
 
 class Solution:
     def isPopOrder(self, pushV, popV):
@@ -20,5 +22,5 @@ class Solution:
             
             
 s = Solution()
-print(s.isPopOrder([1,2,3,4,5], [5,4,3,2,1]))
-print(s.isPopOrder([1,2,3,4,5], [5,4,3,1,2]))
+print s.isPopOrder([1,2,3,4,5], [5,4,3,2,1])
+print s.isPopOrder([1,2,3,4,5], [5,4,3,1,2])
