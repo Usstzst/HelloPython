@@ -32,8 +32,64 @@ class Joseph:
             cons=[i for i in cons if i!=-1]
             cons.insert(0,cons.pop())
             round+=1
-        #print cons[0]
         return cons[0]
         
+
+
+#######################  拓展  ##################################
+
+"""约瑟夫环问题：
+已知n个人（以编号1，2，3...n分别表示）围坐在一张圆桌周围。
+从编号为k的人开始报数，数到m的那个人出列；
+他的下一个人又从1开始报数，数到m的那个人又出列；依此规律重复下去，
+直到圆桌周围的人全部出列。
+通常解决这类问题时我们把编号从0~n-1，
+最后结果+1即为原问题的解。
+
+算法原理：
+1、一群人围在一起坐成环状（如：N）
+2、从某个编号开始报数（如：K）
+3、数到某个数（如：M）的时候，此人出列，下一个人重新报数
+4、一直循环，直到所有人出列 [3]  ，约瑟夫环结束
+
+"""          
         
+#方法一
+def func(count):
+    l = list(range(1,count+1))
+    n=0
+    while len(l)>1:
+        for i in l[:] :
+            if n == 0:
+                n+=1             
+                continue            
+            else:
+                l.remove(i)
+                n=0   
+    print(l[0])
+func(1000)
+ 
+ 
+#方法二
+def josephus(n,k):
+    link=range(1,n+1)
+    ind=0
+    for loop_i in range(n-1):
+        ind = (ind+k)%len(link)
+        ind -= 1
+        #print 'Kill:',link[ind]
+        del link[ind]
         
+        if ind == -1:#thelastelementoflink
+            ind=0
+    print'survice:',link[0]
+     
+ 
+if __name__=='__main__':
+ 
+    josephus(1000,2)
+    print'-'*30
+    josephus(10,5)
+    print'-'*30
+    josephus(10,1)
+ 
